@@ -1,19 +1,21 @@
 {
   "name": "cerberusx",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
-  "description": "CerberusX static website served safely on Render.",
+  "description": "CerberusX: a polished Render-ready three-layer spacecraft autonomy safety demo.",
   "type": "module",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "build": "node scripts/build-check.js"
+    "build": "node scripts/build-check.js",
+    "migrate": "node migrate.js",
+    "check": "node --check server.js && node --check migrate.js && node scripts/build-check.js"
   },
   "engines": {
     "node": ">=20"
   },
   "dependencies": {
-    "@fastify/static": "^7.0.4",
-    "fastify": "^4.28.1"
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
   }
 }
