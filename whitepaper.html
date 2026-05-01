@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CerberusX Whitepaper | The Cerberus Protocol</title>
+  <meta name="description" content="Executive summary and technical whitepaper sketch for the Cerberus Protocol, a three-layer runtime assurance concept for autonomous spacecraft systems.">
+  <meta name="theme-color" content="#03040a">
+  <style>
+    *{box-sizing:border-box}:root{color-scheme:dark;--bg:#03040a;--paper:rgba(9,12,24,.82);--soft:rgba(255,255,255,.035);--line:rgba(255,255,255,.105);--text:#eff4ff;--muted:#9aa4bc;--dim:#69748c;--cyan:#00e5ff;--blue:#7fa8ff;--amber:#ffbf38}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;min-height:100vh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);background:linear-gradient(180deg,rgba(0,229,255,.055),transparent 18rem),linear-gradient(125deg,rgba(255,191,56,.045),transparent 33%),linear-gradient(180deg,#03040a,#080b17 48%,#03040a);line-height:1.74}body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.72),transparent 74%)}a{color:inherit}.nav{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px clamp(18px,4vw,48px);background:rgba(3,4,10,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.brand{text-decoration:none;font-weight:850}.navlinks{display:flex;flex-wrap:wrap;gap:16px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.78rem}.navlinks a{color:var(--muted);text-decoration:none}.navlinks a:hover{color:var(--text)}main{position:relative;max-width:980px;margin:0 auto;padding:72px clamp(18px,4vw,32px) 96px}.cover{border:1px solid var(--line);border-radius:8px;background:linear-gradient(145deg,rgba(0,229,255,.07),rgba(127,168,255,.035),rgba(255,255,255,.02));padding:clamp(28px,5vw,58px);box-shadow:0 24px 80px rgba(0,0,0,.36)}.eyebrow{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--cyan);letter-spacing:.18em;text-transform:uppercase;font-size:.74rem;margin-bottom:18px}h1,h2,h3{margin:0;line-height:1.08;letter-spacing:0;text-wrap:balance}h1{font-size:clamp(2.8rem,7vw,5.8rem);text-shadow:0 0 30px rgba(0,229,255,.15)}h2{font-size:clamp(1.75rem,3.4vw,2.9rem);margin-bottom:18px}h3{font-size:1.08rem;margin-bottom:8px}p{margin:0;color:var(--muted)}p+p{margin-top:16px}.lede{margin-top:24px;color:#c7d0e4;font-size:clamp(1.05rem,1.6vw,1.24rem)}.meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid rgba(255,255,255,.09);color:#8792aa;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.78rem}.section{padding:58px 0;border-top:1px solid rgba(255,255,255,.08)}.summary,.callout,.card,.table{border:1px solid var(--line);border-radius:8px;background:var(--paper);box-shadow:0 18px 55px rgba(0,0,0,.24)}.summary,.callout{padding:24px;margin-top:22px}.callout{border-color:rgba(255,191,56,.22);background:rgba(255,191,56,.045)}.callout strong{color:#fff}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{padding:22px}.tag{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;display:inline-flex;margin-bottom:12px;color:#cbd5eb}.l1{color:var(--cyan)}.l2{color:var(--blue)}.l3{color:var(--amber)}.strip{display:grid;gap:12px;margin-top:24px}.row{display:grid;grid-template-columns:145px 1fr;gap:16px;padding:15px;border:1px solid rgba(255,255,255,.08);border-radius:7px;background:rgba(255,255,255,.035)}.row strong{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:#fff;font-size:.78rem}.quote{font-size:clamp(1.5rem,3vw,2.25rem);line-height:1.18;color:#fff;text-wrap:balance;margin:22px 0}.refs{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}.refs li{padding-left:28px;position:relative;color:#8792aa}.refs li:before{content:attr(data-n);position:absolute;left:0;color:var(--cyan);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.72rem}.refs a{color:#c7efff;text-decoration:none}.refs a:hover{text-decoration:underline}footer{border-top:1px solid rgba(255,255,255,.08);padding-top:36px;color:#7f8aa2;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.78rem;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}@media(max-width:780px){.grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="index.html">CerberusX</a>
+    <div class="navlinks"><a href="index.html">Home</a><a href="coding-cerberus.html">Implementation</a><a href="#references">References</a></div>
+  </nav>
+  <main>
+    <header class="cover">
+      <div class="eyebrow">Executive Summary: The Cerberus Protocol</div>
+      <h1>Triple-layer runtime assurance for autonomous spacecraft systems.</h1>
+      <p class="lede">Current autonomy work can drift toward the dangerous assumption that intelligence equals safety. CerberusX starts from the opposite premise: intelligence is a vulnerability unless command authority is structurally constrained.</p>
+      <div class="meta"><span>Conceptual label: Strategic Sovereign Architecture</span><span>Public research sketch</span><span>May 2026</span></div>
+    </header>
+
+    <section class="section" id="summary">
+      <div class="eyebrow">Mission Statement</div>
+      <h2>A physical interlock for imperfect intelligence.</h2>
+      <div class="summary">
+        <p>The Cerberus Protocol rejects an alignment-only safety model. It separates mission reasoning from survival authority by routing proposed commands through three non-identical layers: a strategic intelligence, an adversarial watchdog, and a deterministic anchor.</p>
+        <p>The goal is not to build a perfect mind. The goal is to build a system that can survive imperfect ones.</p>
+      </div>
+      <div class="callout"><p><strong>Core thesis:</strong> the most reliable component is the one incapable of being tricked.</p></div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="eyebrow">Technical Architecture</div>
+      <h2>Three layers. One runtime. No single point of judgment.</h2>
+      <div class="grid">
+        <article class="card"><span class="tag l1">Layer 1 / The Brain</span><h3>Strategic Intelligence</h3><p>Handles planning, trajectory reasoning, resource tradeoffs, and novel scenario adaptation. It is powerful, but it only proposes.</p></article>
+        <article class="card"><span class="tag l2">Layer 2 / The Critic</span><h3>Adversarial Watchdog</h3><p>Audits Layer 1 for mismatch, overconfidence, ignored safer alternatives, and directive conflict. It should be architecturally diverse from Layer 1.</p></article>
+        <article class="card"><span class="tag l3">Layer 3 / The Brainstem</span><h3>Deterministic Anchor</h3><p>Runs small, hardcoded safety rules. It has no generative capacity, no learned representation, and no reason to accept persuasion.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="logic">
+      <div class="eyebrow">Authority Logic</div>
+      <h2>The dumb cage is the feature.</h2>
+      <p>Layer 1 submits command requests. Layer 2 audits them. Layer 3 checks hard physical thresholds. The authority manager decides what, if anything, reaches execution.</p>
+      <div class="strip">
+        <div class="row"><strong>NORMAL</strong><span>Layer 1 may command only through the gate while Layer 2 audits and Layer 3 monitors.</span></div>
+        <div class="row"><strong>CHALLENGE</strong><span>Layer 2 detects contradiction, drift, or unsafe confidence. High-risk commands pause.</span></div>
+        <div class="row"><strong>REVOCATION</strong><span>Layer 1 becomes advisory while Layer 2 supervises or authority is fully suspended.</span></div>
+        <div class="row"><strong>OVERRIDE</strong><span>Layer 3 detects a hard safety violation and executes survival logic below the level of debate.</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="claim-safety">
+      <div class="eyebrow">Reviewer-Safe Framing</div>
+      <h2>Strong language, careful claims.</h2>
+      <p class="quote">Intelligence is a vulnerability.</p>
+      <p>That line is a thesis, not a certification claim. CerberusX is inspired by runtime assurance, software diversity, and control-structure safety thinking. The simulation exercises authority handoff behavior under injected failures; it does not prove flight readiness.</p>
+      <p>Do not read this as NASA, ESA, SpaceX, AIAA, or any institutional endorsement. Do read it as an argument for making AI command authority visible, revocable, and bounded by deterministic survival logic.</p>
+    </section>
+
+    <section class="section" id="next">
+      <div class="eyebrow">Architect's Note / Next Steps</div>
+      <h2>From theory to telemetry.</h2>
+      <p>The public next step is a live simulation path: normal docking, Layer 1 hallucination, Layer 2 challenge, Layer 2 cutoff, Layer 3 abort, and a timestamped command log. Engineers do not only need words; they need to watch the handoff happen.</p>
+      <p>CerberusX is an open conceptual framework for critique, red-teaming, classroom use, and future scenario expansion.</p>
+    </section>
+
+    <section class="section" id="references">
+      <div class="eyebrow">References</div>
+      <h2>Verified source backbone.</h2>
+      <ul class="refs">
+        <li data-n="[1]">Rivera, V., Danylyszyn, A., Weinstock, C., Sha, L., &amp; Gagliardi, M. <a href="https://sei.cmu.edu/library/an-architectural-description-of-the-simplex-architecture/">An Architectural Description of the Simplex Architecture</a>. SEI, 1996.</li>
+        <li data-n="[2]">Schierman, J., et al. <a href="https://dblp.org/rec/journals/corr/abs-2302-02885">Run Time Assurance for Autonomous Spacecraft Inspection</a>. arXiv:2302.02885, 2023.</li>
+        <li data-n="[3]">AIAA. <a href="https://aiaa.org/advocacy/policy-papers/white-papers/">Autonomous Aerospace Systems Research &amp; Development Priorities</a>. White paper page, 2025.</li>
+        <li data-n="[4]">Goodfellow, I., Shlens, J., &amp; Szegedy, C. Explaining and Harnessing Adversarial Examples. ICLR, 2015.</li>
+        <li data-n="[5]">Ji, Z., et al. Survey of Hallucination in Natural Language Generation. ACM Computing Surveys, 2023.</li>
+        <li data-n="[6]">Knight, J. C., &amp; Leveson, N. G. An Experimental Evaluation of the Assumption of Independence in Multiversion Programming. IEEE Transactions on Software Engineering, 1986.</li>
+        <li data-n="[7]">Leveson, N. Engineering a Safer World: Systems Thinking Applied to Safety. MIT Press, 2011.</li>
+        <li data-n="[8]">Ovadia, Y., et al. Can You Trust Your Model's Uncertainty? NeurIPS, 2019.</li>
+      </ul>
+    </section>
+
+    <footer><span>CerberusX - whitepaper sketch</span><span><a href="coding-cerberus.html">Implementation</a> / <a href="index.html">Home</a></span></footer>
+  </main>
+</body>
+</html>
